@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+<style>
+
+body { 
+  margin: auto; 
+  padding: 0; 
+  background: linear-gradient(135deg, #0f0f1e, #1a1a2f); 
+  color: #f0f0f0; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
+  padding: 30px 10px; 
+  box-sizing: border-box;
+}
+
+.cv-container { 
+  width: 100%; 
+  max-width: 800px; 
+}
+
+.cv-card {
+  background: #1f1f2e; 
+  padding: 30px; 
+  border-radius: 15px; 
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  animation: fadeIn 1.2s ease;
+}
+
+.cv-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 25px; 
+  margin: 0; 
+  color: #00eaff; 
+  text-align: center;
+}
+
+.cv-title { 
+  font-size: 20px;
+  text-align: center; 
+  color: White; 
+}
+
+.cv-section { 
+  margin-bottom: 25px; 
+}
+
+.cv-section h2 { 
+  color: #00eaff; 
+  border-bottom: 1px solid #00eaff;
+  padding-bottom: 5px; 
+  margin-bottom: 10px;
+}
+
+.cv-section ul { 
+  padding-left: 20px; 
+  line-height: 1.6; 
+}
+
+.cv-section p { 
+  margin: 5px 0; 
+  color: #ddd; 
+}
+
+@keyframes fadeIn { 
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  } to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  } 
+}
+
+@media (max-width: 600px) {
+.cv-card { 
+    padding: 20px; 
+}
+.cv-name {
+  font-size: 2em;
+  }
+}
+
+.bio {
+  font-size: 15px;
+}
+.jcv {
+  font-family: 'Orbitron', Sans-Serif;
+}
+.ccv {
+  font-family: 'Orbitron', Sans-Serif;
+  background: #00eaff; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 10px; 
+  color: #1a1a2f; 
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.ccv:active {
+  transform: scale(0.95);
+}
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: linear-gradient(135deg, #0f0f1e, #1a1a2f) !important;
+  }
+
+  .cv-card {
+    box-shadow: none !important;
+    background: #1f1f2e !important;
+  }
+
+  button, .no-print {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="cv-container">
+    <div class="cv-card">
+      <h1 class="cv-name">Curriculum Vitae</h1>
+      <p class="cv-title">NAMA : Ahmad Shodiq</p>
+      <p class="cv-title">UMUR : 17 thn</p>
+      
+    <div class="cv-section">
+    <h2 class="jcv">📧 Kontak</h2>
+    <p>Email: as5767182@gmail.com</p>
+    <p>No. HP: +62-838-9025-6854</p>
+    <p>Alamat : Tangerang, Kebon Besar Jln.Abadi</p>
+  </div>
+
+  <div class="cv-section">
+    <h2 class="jcv">👤 Tentang Saya</h2>
+    <p class="bio">fokus pada pengembangan web dan game. Telah membuat beberapa website & Game Sederhana.</p>
+  </div>
+
+  <div class="cv-section">
+    <h2 class="jcv">🎓 Pendidikan</h2>
+    <ul>
+      <li>SDN Empang Bahagia 3 (2014 - 2020. Terakhir )</li>
+    </ul>
+  </div>
+
+  <div class="cv-section">
+    <h2 class="jcv">💼 Pengalaman</h2>
+    <ul>
+      <li class="bio">
+🌐 Web Developer & Game Developer(Freelance)
+Membuat dan mengelola beberapa proyek website personal dan Game menggunakan HTML, CSS, Dan JavaScript. Terbiasa bekerja secara mandiri dan menyelesaikan deadline sesuai permintaan klien.
+<li class="bio">
+  Membuat website dengan tampilan modern dan responsif
+</li>
+<li class="bio">
+  Membuat sistem redeem dan penyimpanan data game berbasis JavaScript
+</li>
+<li class="bio">
+  Membantu rekan atau komunitas dalam pembuatan bot Discord dan UI website
+</li>
+    </li>
+    </ul>
+  </div>
+
+  <div class="cv-section">
+    <h2 class="jcv">🛠️ Skill</h2>
+    <p class="bio">HTML, CSS, JavaScript, Design, Github</p>
+  </div>
+  </div>
+  <div style="text-align: center; margin-top: 30px;">
+  <button onclick="window.print()" class="ccv">
+    🖨️ Download CV
+  </button>
+</div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => { const sections = document.querySelectorAll(".cv-section");
+
+sections.forEach((section, i) => { section.style.opacity = 0; section.style.transform = "translateY(20px)"; setTimeout(() => { section.style.transition = "all 0.6s ease"; section.style.opacity = 1; section.style.transform = "translateY(0)"; }, i * 200); }); });
+
+  </script>
+  </body>
+</html>
