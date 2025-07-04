@@ -1,220 +1,138 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khusus Untuk Bila</title>
+  <title>Special For Bila</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:'Poppins',sans-serif;
+  <style>
+    
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+body,html{height:100%;width:100%;-webkit-tap-highlight-color:transparent;user-select:none;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#fff;overflow:hidden}
+.page{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%}
+.hidden{display:none}
+h1{font-size:2.2rem;text-align:center;margin-bottom:1rem}
+p{font-size:1.2rem;text-align:center;margin-bottom:1.5rem;max-width:90%}
+.btn{padding:0.75rem 1.5rem;border:none;border-radius:8px;font-size:1rem;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:scale(1.05)}
+.btn-group{display:flex;gap:1rem}
+.yes{background:#ff4d88;color:#fff}
+.no{background:#555}
+#result-text{font-size:1.5rem}
+.tr {
+  color: transparent;
 }
-body{
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
-  background:#0f0f0f;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-/* Semula: .page { … }  */
-/* Tambahkan baris pointer-events:none; di dalamnya */
-.page{
-  position:absolute;
-  width:100%;
-  max-width:480px;
-  text-align:center;
-  padding:2rem;
-  transition:opacity .4s ease, transform .4s ease;
-  opacity:0;
-  transform:translateY(20px);
-
-  /* ⬇️ tambahkan ini */
-  pointer-events:none;   /* non-aktifkan interaksi utk halaman yg tidak aktif */
-}
-
-/* Aktifkan interaksi hanya pada halaman yg tampil */
-.page.active{
-  opacity:1;
-  transform:translateY(0);
-  pointer-events:auto;   /* ⬅️ tambahkan baris ini */
-}
-h1{
-  font-size:clamp(1.5rem,5vw,2.2rem);
-  margin-bottom:1.5rem;
-}
-input{
-  width:100%;
-  padding:0.75rem 1rem;
-  border-radius:8px;
-  border:none;
-  font-size:1rem;
-  margin-bottom:1.5rem;
-}
-button{
-  padding:0.75rem 2rem;
-  border:none;
-  border-radius:999px;
-  font-size:1rem;
-  cursor:pointer;
-  transition:transform .2s;
-}
-button:hover{
-  transform:scale(1.05);
-}
-.actions{
-  display:flex;
-  gap:1rem;
-  justify-content:center;
-  margin-top:1.5rem;
-}
-.yes{
-  background:#ff4b7d;
-  color:#fff;
-}
-.no{
-  background:#777;
-  color:#fff;
-}
-.whatsapp{
-  background:#25D366;
-  color:#fff;
-}
-.message{
-  font-size:1.1rem;
-  line-height:1.5;
-  margin:0 0 1.5rem;
-}
-#hearts-container{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  z-index:-1;
-}
-.heart{
-  position:absolute;
-  width:20px;
-  height:20px;
-  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29.6"><path fill="%23ff4b7d" d="M23.6,0c-3.6,0-6.8,2.1-8,5.3C14.3,2.1,11,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0z"/></svg>') center/contain no-repeat;
-  opacity:.8;
-  animation:float 10s linear infinite;
-}
-@keyframes float{
-  0%{
-    transform:translateY(0) translateX(0) scale(.6);
-    opacity:1;
-  }
-  100%{
-    transform:translateY(-120vh) translateX(60px) scale(1.2);
-    opacity:0;
-  }
-}
-/* Responsive tweaks */
-@media(min-width:768px){
-  .page{
-    max-width:600px;
-  }
-}
-
-</style>
+  </style>
 </head>
 <body>
-  <!-- Floating hearts container -->
-  <div id="hearts-container"></div>
-
   <!-- Page 1 -->
-  <section id="page1" class="page active">
-    <h1>Masukkan Nama Kamu</h1>
-    <input type="text" id="nameInput" placeholder="Nama kamu..." autocomplete="off">
-    <button id="btnNext">Lanjut</button>
+  <section class="page" id="page1">
+    <h1>Halo Bilaa</h1>
+    <p>Aku ️Mau Ngomong</p>
+    <button class="btn" id="btn-next-1">Lanjut</button>
   </section>
 
   <!-- Page 2 -->
-  <section id="page2" class="page">
-    <h1 id="greeting"></h1>
-    <p class="message">Kamu kok bisa sih cantik banget<br/>Btw kamu mau nggak jadi pacar aku?</p>
-    <div class="actions">
-      <button id="btnYes" class="yes">Mau</button>
-      <button id="btnNo" class="no">Enggak</button>
-    </div>
+  <section class="page hidden" id="page2">
+    <p id="typewriter"></p>
   </section>
 
   <!-- Page 3 -->
-  <section id="page3" class="page">
-    <h1>Coba kalau beneran mau chat ke WhatsApp</h1>
-    <button id="btnWhatsApp" class="whatsapp">Lanjut Ke WhatsApp</button>
+  <section class="page hidden" id="page3">
+    <h1>kamu mau gak jadi pacar aku?</h1>
+    <div class="btn-group">
+      <button class="btn yes" id="btn-yes">💖 Mau</button>
+      <button class="btn no" id="btn-no">😢 Enggak</button>
+    </div>
   </section>
 
+  <!-- Result Page -->
+  <section class="page hidden" id="page-result">
+    <p id="result-text"></p>
+    <button onclick="wa()" class="btn">Lanjut WhatsApp</button>
+    <p class="tr">></p>
+    <button class="btn" id="btn-replay">Ulangi Lagi</button>
+  </section>
+
+  <audio id="bgm" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-// Utility to switch pages
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>{
-    if(p.id===id){
-      p.classList.add('active');
-    }else{
-      p.classList.remove('active');
-    }
-  });
-}
+    
+const page1   = document.getElementById('page1');
+const page2   = document.getElementById('page2');
+const page3   = document.getElementById('page3');
+const pageR   = document.getElementById('page-result');
+const btnNext1 = document.getElementById('btn-next-1');
+const btnYes  = document.getElementById('btn-yes');
+const btnNo   = document.getElementById('btn-no');
+const btnReplay = document.getElementById('btn-replay');
+const typeTarget = document.getElementById('typewriter');
+const resultText = document.getElementById('result-text');
+const bgm = document.getElementById('bgm');
 
-// Floating heart generator
-function createHearts(){
-  const container=document.getElementById('hearts-container');
-  const heartCount=25;
-  for(let i=0;i<heartCount;i++){
-    const span=document.createElement('span');
-    span.className='heart';
-    span.style.left=Math.random()*100+'vw';
-    span.style.animationDelay=Math.random()*5+'s';
-    span.style.transform=`scale(${0.4+Math.random()*0.8})`;
-    container.appendChild(span);
-  }
-}
+// Autoplay background music when user interacts
+function playMusic(){ if(bgm.paused){ bgm.play().catch(()=>{}); } }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  createHearts();
-
-  const btnNext=document.getElementById('btnNext');
-  const btnYes=document.getElementById('btnYes');
-  const btnNo=document.getElementById('btnNo');
-  const btnWhatsApp=document.getElementById('btnWhatsApp');
-  const nameInput=document.getElementById('nameInput');
-  const greeting=document.getElementById('greeting');
-
-  btnNext.addEventListener('click',()=>{
-    const name=nameInput.value.trim();
-    if(!name){
-      alert('Masukkan namamu dulu dong!');
-      return;
-    }
-    greeting.textContent=`Halo ${name} Ada Salam Dari Tuan Aku Yang bikin Website ini`;
-    showPage('page2');
-  });
-
-  btnYes.addEventListener('click',()=>{
-    showPage('page3');
-  });
-
-  btnNo.addEventListener('click',()=>{
-    alert('Oke Yaudah deh :)');
-  });
-
-  btnWhatsApp.addEventListener('click',()=>{
-    const number='6283890256854'; // international format
-    const msg=encodeURIComponent('');
-    window.open(`https://wa.me/${number}?text=${msg}`,'_blank');
-  });
+btnNext1.addEventListener('click', () => {
+  playMusic();
+  page1.classList.add('hidden');
+  page2.classList.remove('hidden');
+  startTyping();
 });
 
+function startTyping(){
+  const lines = [
+    'Gatau kenapa, setiap chat sama kamu tuh bikin nyaman',
+    ',Sepertinya Kamu itu bukan orang ya? tapi bidadari.',
+    'Tapi kayaknya aku mau jujur hari ini.'
+  ];
+  let line = 0, char = 0;
+  typeTarget.textContent = '';
+  const speed = 80;
+
+  function type(){
+    if(line < lines.length){
+      if(char < lines[line].length){
+        typeTarget.textContent += lines[line][char++];
+        setTimeout(type, speed);
+      } else {
+        typeTarget.textContent += '\n';
+        line++; char = 0;
+        setTimeout(type, speed * 10);
+      }
+    } else {
+      // Show next page button automatically after typing ends
+      setTimeout(()=>{
+        page2.classList.add('hidden');
+        page3.classList.remove('hidden');
+      }, 1000);
+    }
+  }
+  type();
+}
+
+btnYes.addEventListener('click', () => {
+  page3.classList.add('hidden');
+  pageR.classList.remove('hidden');
+  resultText.innerHTML = 'Yeeey😁<br>Mulai hari ini, kamu resmi jadi penyemangat hidup aku…';
+});
+
+btnNo.addEventListener('click', () => {
+  page3.classList.add('hidden');
+  pageR.classList.remove('hidden');
+  resultText.innerHTML = 'Gak apa-apa kok…<br>Yang penting aku udah jujur. Tapi jangan ninggalin aku sepenuhnya, ya.';
+});
+
+btnReplay.addEventListener('click', () => {
+  pageR.classList.add('hidden');
+  page1.classList.remove('hidden');
+});
+
+function wa() {
+  window.open('https://wa.me/+6283890256854')
+}
   </script>
 </body>
 </html>
